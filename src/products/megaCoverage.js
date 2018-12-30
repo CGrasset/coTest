@@ -16,7 +16,7 @@ class MegaCoverage extends Product {
   // Set sellIn on initialize
   // Never modify it later
   set sellIn(value) {
-    if(typeof this.sellIn === 'undefined'){
+    if (typeof this.sellIn === 'undefined'){
       this._sellIn = value;
     }
   }

@@ -11,8 +11,8 @@ class Product {
   }
 
   set price(value) {
-    if(value > 50) { value = 50; }
-    if(value < 0) { value = 0; }
+    if (value > 50) { value = 50; }
+    if (value < 0) { value = 0; }
     this._price = value;
   }
 

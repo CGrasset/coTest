@@ -1,6 +1,6 @@
-const coTest        = require('../src/coTest');
-const Product       = require('../src/products/product');
-const CarInsurance  = coTest.CarInsurance;
+const coTest = require('../src/coTest');
+const Product = require('../src/products/product');
+const CarInsurance = coTest.CarInsurance;
 
 const productsAtDayZero = [
   new Product('Medium Coverage', 10, 20),
@@ -14,8 +14,8 @@ const productsAtDayZero = [
   new Product('Super Sale', 3, 6),
 ];
 
-const carInsurance    = new CarInsurance(productsAtDayZero);
-const productPrinter  = function (product) {
+const carInsurance = new CarInsurance(productsAtDayZero);
+const productPrinter = function(product) {
   console.log(`${product.name}, ${product.sellIn}, ${product.price}`);
 };
 

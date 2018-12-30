@@ -1,1 +1,18 @@
-{"extends": "strongloop"}
+{
+  "extends": "strongloop",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "should|expect"
+      }
+    ]
+  }
+}
