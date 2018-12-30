@@ -1,8 +1,7 @@
-const expect = require('chai').expect;
-
-const coTest = require('../src/coTest');
-const CarInsurance = coTest.CarInsurance;
-const Product = coTest.Product;
+const expect        = require('chai').expect;
+const coTest        = require('../src/coTest');
+const Product       = require('../src/products/product');
+const CarInsurance  = coTest.CarInsurance;
 
 describe("Products Test", function() {
   const name = "foo"
@@ -70,19 +69,14 @@ describe("Products Test", function() {
   describe("Mega Coverage Product", function() {
     let productName = "Mega Coverage";
 
-    it("price should be 80", function(){
-      const product = new Product(productName, 1, 1)
-      expect(product.price).equal(80);
-    });
-
     describe("on update", function() {
-      it("price should never alter", function() {
-        const coTest    = new CarInsurance([ new Product(productName, 1, 80) ]);
+      it("price should always be 80", function() {
+        const coTest    = new CarInsurance([ new Product(productName, 1, 5) ]);
         const products  = coTest.updatePrice();
         expect(products[0].price).equal(80);
       });
 
-      it("sellIn should never alter", function() {
+      it("sellIn should never be altered", function() {
         const coTest    = new CarInsurance([ new Product(productName, 1, 80) ]);
         const products  = coTest.updatePrice();
         expect(products[0].sellIn).equal(1);
@@ -136,6 +130,14 @@ describe("Products Test", function() {
         const coTest    = new CarInsurance([ new Product(productName, 1, 20) ]);
         const products  = coTest.updatePrice();
         expect(products[0].price).equal(18);
+      });
+    });
+
+    describe("when sell by date has passed", function() {
+      it("price should degrade twice as fast", function() {
+        const coTest    = new CarInsurance([ new Product(productName, 0, 10) ]);
+        const products  = coTest.updatePrice();
+        expect(products[0].price).equal(6);
       });
     });
   });

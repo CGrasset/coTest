@@ -1,8 +1,7 @@
-const expect = require('chai').expect;
-
-const coTest = require('../src/coTest');
-const CarInsurance = coTest.CarInsurance;
-const Product = coTest.Product;
+const expect        = require('chai').expect;
+const coTest        = require('../src/coTest');
+const Product       = require('../src/products/product');
+const CarInsurance  = coTest.CarInsurance;
 
 describe("Co Test", function() {
 

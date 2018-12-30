@@ -1,6 +1,6 @@
 const coTest        = require('../src/coTest');
+const Product       = require('../src/products/product');
 const CarInsurance  = coTest.CarInsurance;
-const Product       = coTest.Product;
 
 const productsAtDayZero = [
   new Product('Medium Coverage', 10, 20),
